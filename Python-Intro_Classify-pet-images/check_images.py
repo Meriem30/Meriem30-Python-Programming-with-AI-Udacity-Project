@@ -79,6 +79,7 @@ def main():
     # Creates Classifier Labels with classifier function, Compares Labels,
     # and adds these results to the results dictionary - results
     classify_images(in_arg.dir, results, in_arg.arch)
+    print(f"This is an example of the results dict instance after calling classify function: key({results[0]}), label({results[0][0]}), classifier({results[0][1]})")
 
     # Function that checks Results Dictionary using results
     check_classifying_images(results)
