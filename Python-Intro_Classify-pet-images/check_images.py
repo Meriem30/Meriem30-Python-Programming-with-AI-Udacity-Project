@@ -93,6 +93,7 @@ def main():
     # classified images as 'a dog' or 'not a dog'. This demonstrates if
     # model can correctly classify dog images as dogs (regardless of breed)
     adjust_results4_isadog(results, in_arg.dogfile)
+    print("this is the len of the results dict values", len(results.values()[0]))
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
@@ -123,7 +124,7 @@ def main():
     print_results(results, results_stats, in_arg.arch)
     # TODO 0: Measure total program runtime by collecting end time
     sleep(500)
-    end_time = time.time()
+    end_time = time()
 
     # TODO 0: Computes overall runtime in seconds & prints it in hh:mm:ss format
     tot_time = end_time - start_time
