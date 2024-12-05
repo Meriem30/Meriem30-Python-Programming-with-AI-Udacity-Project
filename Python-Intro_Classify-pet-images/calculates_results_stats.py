@@ -89,8 +89,8 @@ def calculates_results_stats(results_dic):
                 n_correct_notdogs += 1
         if results_dic[file_in][2] == 1:
             n_match += 1
-            if results_dic[file_in][3] == 1:
-                n_correct_breed += 1
+            if results_dic[file_in][3] == 1 and results_dic[file_in][4] == 1:
+                    n_correct_breed += 1
 
     n_notdogs_img = n_images - n_dogs_img
     # calculate the percentages
