@@ -74,20 +74,20 @@ def print_results(results_dic, results_stats_dic, model,
 
     # print the statistics: different for each model architecture
     print("These are the resulted model statistics:")
-    for key, value in results_stats_dic.items():
-        if value.startswith('pct_'):
-            print(f"{key} : {value}%")
+    for key in results_stats_dic:
+        if key.startswith('pct_'):
+            print(f"{key} : {results_stats_dic[key]}%")
 
     # print miss-classifications if enabled
-    if print_incorrect_dogs and (results_stats_dic['n_correct_dogs'] != results_stats_dic['n_dogs_img']):
+    if print_incorrect_dogs and (results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs'] != results_stats_dic['n_images']):
         print("The model incorrectly classified some dog/not dog images:")
         for key in results_dic:
             if results_dic[key][3] != results_dic[key][4]:
-                print(f"The pet image of {results_dic[key][0]} in file {results_dic[key]} was missclassified by the model as {results_dic[key][1]}.")
+                print("The pet image of {:20} was missclassified by the model as {:20}.".format(results_dic[key][0],results_dic[key][1]))
 
     # print the incorrectly classified dog breeds
     if print_incorrect_breed and (results_stats_dic['n_correct_breed'] != results_stats_dic['n_correct_dogs']):
         print("The model incorrectly classified some breeds of dog images:")
         for key in results_dic:
             if (sum(results_dic[key][3:]) == 2) and (results_dic[key][2] == 0):
-                print(f"The dog image of {results_dic[key][0]} in file {results_dic[key]} was missclassified by the model as {results_dic[key][1]}.")
+                print("The dog image of {:20} was missclassified by the model as {:20}.".format(results_dic[key][0], results_dic[key][1]))
