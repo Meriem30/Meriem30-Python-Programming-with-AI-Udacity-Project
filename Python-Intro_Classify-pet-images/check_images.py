@@ -79,7 +79,6 @@ def main():
     # Creates Classifier Labels with classifier function, Compares Labels,
     # and adds these results to the results dictionary - results
     classify_images(in_arg.dir, results, in_arg.arch)
-    print(f"This is an example of the results dict instance after calling classify function: key({results[0]}), label({results[0][0]}), classifier({results[0][1]})")
 
     # Function that checks Results Dictionary using results
     check_classifying_images(results)
@@ -93,7 +92,7 @@ def main():
     # classified images as 'a dog' or 'not a dog'. This demonstrates if
     # model can correctly classify dog images as dogs (regardless of breed)
     adjust_results4_isadog(results, in_arg.dogfile)
-    print("this is the len of the results dict values", len(results.values()[0]))
+    print("this is the len of the results dict values", len(list(results.values())[0]))
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
