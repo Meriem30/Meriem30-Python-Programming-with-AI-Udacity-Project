@@ -67,8 +67,9 @@ def classify_images(images_dir, results_dic, model):
     """
     # go through each file in the specified folder
     for file_name in results_dic:
+      full_path = f"{images_dir}/{file_name}"
       # call the classifier to get the label, as in test_classifier.py
-      model_label = classifier(images_dir,model)
+      model_label = classifier(full_path,model)
 
       # transform the returned value of label to match the used format for extracting dog names
       model_label = model_label.strip().lower()
