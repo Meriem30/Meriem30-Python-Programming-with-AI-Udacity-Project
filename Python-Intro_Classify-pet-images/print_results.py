@@ -83,11 +83,11 @@ def print_results(results_dic, results_stats_dic, model,
         print("***The model incorrectly classified some dog/not dog images:\n")
         for key in results_dic:
             if sum(results_dic[key][3:]) == 1:
-                print("The pet image of {:>26} was incorrectly classified by the model as {:>30}.".format(results_dic[key][0],results_dic[key][1]))
+                print("The pet image of {:>26} was incorrectly classified by the model as {:>30}".format(results_dic[key][0],results_dic[key][1]))
 
     # print the incorrectly classified dog breeds
     if print_incorrect_breed and (results_stats_dic['n_correct_breed'] != results_stats_dic['n_correct_dogs']):
         print("***The model incorrectly classified some breeds of dog images:\n")
         for key in results_dic:
             if (sum(results_dic[key][3:]) == 2) and (results_dic[key][2] == 0):
-                print("The dog image of {:>26} was incorrectly classified by the model as {:>30}.".format(results_dic[key][0], results_dic[key][1]))
+                print("The dog image of {:>26} was incorrectly classified by the model as {:>30}".format(results_dic[key][0], results_dic[key][1]))
