@@ -71,7 +71,7 @@ def get_pet_labels(image_dir):
         # as the first element of the list (value)
         # if it's not already in the dict
         if file_in not in pet_labels_dict:
-            pet_labels_dict[file_in] = jointed_name
+            pet_labels_dict[file_in] = [jointed_name]
         # print a warning message if it's already exists
         else:
             print(f"Warning: Duplicate files exists ! check the already added element {file_in} to the dict.")
